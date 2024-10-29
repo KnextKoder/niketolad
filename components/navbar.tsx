@@ -17,36 +17,36 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Farm Tanks",
     href: "/docs/primitives/alert-dialog",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     title: "Farm Tankers",
     href: "/docs/primitives/hover-card",
     description:
-      "For sighted users to preview content available behind a link.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     title: "Aviation Fuel Handling",
     href: "/docs/primitives/progress",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     title: "Pipeline Installation",
     href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     title: "Building Construction",
     href: "/docs/primitives/tabs",
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     title: "Fuel Bowser Sales/Retrofit",
     href: "/docs/primitives/tooltip",
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ]
 
@@ -94,13 +94,13 @@ export function NavBar() {
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <ListItem href="/docs" title="Nikentolad Farms Limited">
-                    Re-usable components built using Radix UI and Tailwind CSS.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </ListItem>
                   <ListItem href="/docs/installation" title="Nikentolad Nigerian Limited">
-                    How to install dependencies and structure your app.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </ListItem>
                   <ListItem href="/docs/primitives/typography" title="Nikentolad Energy Limited">
-                    Styles for headings, paragraphs, lists...etc
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
