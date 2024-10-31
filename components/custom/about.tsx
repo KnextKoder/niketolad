@@ -1,6 +1,6 @@
 import { Section } from "@/components/craft";
 import Image from "next/image";
-import Placeholder from "@/public/placeholder.webp";
+import Placeholder from "@/public/Nikentolad Logos/Nikentolad group.png";
 import Balancer from "react-wrap-balancer";
 
 export const About = () => {

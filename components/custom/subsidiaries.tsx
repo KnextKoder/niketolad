@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Container, Section } from "../craft";
-import Placeholder from "@/public/placeholder.webp";
+import FarmLogo from "@/public/Nikentolad Logos/niketolad farms logo.png"
+import EnergyLogo from "@/public/Nikentolad Logos/Nikentolad Energy logo.png"
+import NigeriaLogo from "@/public/Nikentolad Logos/Nikentolad Nigeria limited logo.png"
 
 interface SubsidiaryCardProps {
   header: string;
@@ -53,33 +55,35 @@ const EnergyCard = ({ header, description, image }: SubsidiaryCardProps) => (
 const Subsidiaries = () => {
   return (
     <Section>
-      <Container className="flex flex-col items-center gap-4 text-center">
-        <h2 className="!my-0 font-bold text-3xl md:text-4xl">Our Subsidiaries</h2>
+        <div className="bg-gray-100 w-screen flex items-center justify-self-center">
+        <Container className="flex flex-col items-center gap-4 text-center">
+            <h2 className="!my-0 font-bold text-3xl md:text-4xl">Our Subsidiaries</h2>
 
-        <div className="not-prose mt-14 grid grid-cols-1 gap-12 md:gap-6 md:grid-cols-2">
-          <div className="col-span-1 mb-2 md:mb-6">
-            <FarmsCard
-                header="Nikentolad Farms Limited"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                image={Placeholder.src}
+            <div className="not-prose mt-14 grid grid-cols-1 gap-12 md:gap-6 md:grid-cols-2">
+            <div className="col-span-1 mb-2 md:mb-6">
+                <FarmsCard
+                    header="Nikentolad Farms Limited"
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    image={FarmLogo.src}
+                />
+            </div>
+            <div className="col-span-1 mb-2 md:mb-6">
+                <NigeriaCard
+                    header="Nikentolad Energy Limited"
+                    description="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    image={NigeriaLogo.src}
+                />
+            </div>
+            <div className="col-span-1 mt-2 md:col-span-2 md:mt-6">
+            <EnergyCard
+                header="Nikentolad Nigeria Limited"
+                description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                image={EnergyLogo.src}
             />
-          </div>
-          <div className="col-span-1 mb-2 md:mb-6">
-            <NigeriaCard
-                header="Nikentolad Energy Limited"
-                description="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                image={Placeholder.src}
-            />
-          </div>
-          <div className="col-span-1 mt-2 md:col-span-2 md:mt-6">
-          <EnergyCard
-            header="Nikentolad Nigeria Limited"
-            description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            image={Placeholder.src}
-          />
-          </div>
+            </div>
+            </div>
+        </Container>
         </div>
-      </Container>
     </Section>
   );
 };

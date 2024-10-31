@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Balancer from "react-wrap-balancer";
 import { Section, Container } from "@/components/craft";
-import Placeholder from "@/public/placeholder.webp";
+import Placeholder from "@/public/Nikentolad Logos/Efficient quality control background.png";
 
 export default function Hero() {
   return (
@@ -16,7 +16,7 @@ export default function Hero() {
           placeholder="blur"
         />
         <Container className="relative z-10 flex h-full items-end justify-center pb-8 text-center">
-          <div className="bg-black bg-opacity-40 p-4 rounded-lg mb-8">
+          <div className="bg-transparent p-4 rounded-lg mb-8">
             <h1 className="text-white text-3xl md:text-5xl">
               <Balancer>Efficient</Balancer>
             </h1>

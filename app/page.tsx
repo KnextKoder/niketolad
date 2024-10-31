@@ -1,4 +1,5 @@
 import { About } from "@/components/custom/about";
+import { Clients } from "@/components/custom/clients";
 import Hero from "@/components/custom/hero";
 import { Services } from "@/components/custom/services";
 import Subsidiaries from "@/components/custom/subsidiaries";
@@ -12,6 +13,7 @@ export default function Home() {
       <About />
       <Subsidiaries/>
       <Services/>
+      <Clients/>
     </div>
   );
 }
