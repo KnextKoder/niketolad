@@ -5,7 +5,7 @@ import Balancer from "react-wrap-balancer";
 
 export const About = () => {
   return (
-    <Section className="w-screen py-8 md:py-12">
+    <Section className="w-screen py-8 md:py-12 bg-gradient-to-r from-slate-50 to-niketolad/60">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="md:w-1/2 flex flex-col justify-center items-center">

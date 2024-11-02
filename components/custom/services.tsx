@@ -5,8 +5,8 @@ import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
 
 export const Services = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
-        <h2 className="!my-0 font-bold text-3xl md:text-4xl">Our Services</h2>
+    <div className="flex flex-col items-center justify-center bg-gradient-to-l from-slate-50 to-niketolad/60 py-8">
+        <h2 className="font-bold text-3xl md:text-4xl my-4">Our Services</h2>
         <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[28rem] md:grid-cols-6 gap-1 md:gap-3">
         {items.map((item, i) => (
             <BentoGridItem
@@ -40,7 +40,7 @@ const items = [
     className: "md:col-span-4",
   },
   {
-    title: "Farm Tankers",
+    title: "Sales of Quality Control Equipments",
     header: <Images image={Placeholder.src} />,
     className: "md:col-span-2",
   },

@@ -17,10 +17,10 @@ export default function Hero() {
         />
         <Container className="relative z-10 flex h-full items-end justify-center pb-8 text-center">
           <div className="bg-transparent p-4 rounded-lg mb-8">
-            <h1 className="text-white text-3xl md:text-5xl">
+            <h1 className="text-white text-3xl md:text-6xl">
               <Balancer>Efficient</Balancer>
             </h1>
-            <h1 className="text-white font-bold text-3xl md:text-5xl">
+            <h1 className="text-white font-bold text-5xl md:text-8xl">
               <Balancer>Quality Control</Balancer>
             </h1>
           </div>

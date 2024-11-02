@@ -11,42 +11,42 @@ interface SubsidiaryCardProps {
 }
 
 const FarmsCard = ({ header, description, image }: SubsidiaryCardProps) => (
-  <div className="relative flex flex-col rounded-lg border p-6 bg-white shadow-lg">
+  <div className="relative flex flex-col rounded-lg border p-6 bg-niketolad text-white shadow-lg">
     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
       <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-gray-200">
         <Image src={image} alt={header} className="w-full h-full object-cover" width={96} height={96} />
       </div>
     </div>
     <div className="mt-16 text-center">
-      <h4 className="mb-2 mt-4 text-2xl text-primary">{header}</h4>
+      <h4 className="mb-2 mt-4 text-2xl">{header}</h4>
       <p className="text-sm opacity-70">{description}</p>
     </div>
   </div>
 );
 
 const NigeriaCard = ({ header, description, image }: SubsidiaryCardProps) => (
-  <div className="relative flex flex-col rounded-lg border p-6 bg-white shadow-lg">
+  <div className="relative flex flex-col rounded-lg border p-6 bg-niketolad text-white shadow-lg">
     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
       <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-gray-200">
         <Image src={image} alt={header} className="w-full h-full object-cover" width={96} height={96} />
       </div>
     </div>
     <div className="mt-16 text-center">
-      <h4 className="mb-2 mt-4 text-2xl text-primary">{header}</h4>
+      <h4 className="mb-2 mt-4 text-2xl ">{header}</h4>
       <p className="text-sm opacity-70">{description}</p>
     </div>
   </div>
 );
 
 const EnergyCard = ({ header, description, image }: SubsidiaryCardProps) => (
-  <div className="relative flex flex-col rounded-lg border p-6 bg-white shadow-lg">
+  <div className="relative flex flex-col rounded-lg border p-6 bg-niketolad text-white shadow-lg">
     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
       <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-gray-200">
         <Image src={image} alt={header} className="w-full h-full object-cover" width={96} height={96} />
       </div>
     </div>
     <div className="mt-16 text-center">
-      <h4 className="mb-2 mt-4 text-2xl text-primary">{header}</h4>
+      <h4 className="mb-2 mt-4 text-2xl">{header}</h4>
       <p className="text-sm opacity-70">{description}</p>
     </div>
   </div>
@@ -55,7 +55,7 @@ const EnergyCard = ({ header, description, image }: SubsidiaryCardProps) => (
 const Subsidiaries = () => {
   return (
     <Section>
-        <div className="bg-gray-100 w-screen flex items-center justify-self-center">
+        <div className="w-screen flex items-center justify-self-center">
         <Container className="flex flex-col items-center gap-4 text-center">
             <h2 className="!my-0 font-bold text-3xl md:text-4xl">Our Subsidiaries</h2>
 

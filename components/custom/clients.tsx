@@ -22,7 +22,7 @@ const clients2 = [
 
 const clients3 = [
   { name: 'Client 1', logo: '/nikentolad-clients-png-logos/image 7 (1).png' },
-  { name: 'Client 2', logo: '/nikentolad-clients-png-logos/image 8 (2).png' },
+  { name: 'Client 2', logo: '/nikentolad-clients-png-logos/image88.png' },
   { name: 'Client 3', logo: '/nikentolad-clients-png-logos/image 10.png' },
   { name: 'Client 4', logo: '/nikentolad-clients-png-logos/image 11.png' },
 ]
@@ -75,9 +75,9 @@ export function Clients() {
   }
 
   return (
-    <section className="bg-gray-300 py-16 mt-14 flex flex-col">
+    <section className="py-16 pt-14 flex flex-col">
       <div className="container mx-auto px-4 h-full">
-        <h2 className="mb-12 text-center text-3xl font-bold">Our Clients Trust Us</h2>
+        <h2 className="mb-12 text-center text-3xl md:text-5xl font-bold my-3">Our Clients Trust Us</h2>
         <div className="space-y-8 h-full">
           <Swiper {...swiperParams}>
             {clients.map((client, index) => (
@@ -111,7 +111,7 @@ export function Clients() {
       </div>
     {/* ================================================================================================================================================================= */}
       <div className="container mx-auto px-4 h-full mt-9">
-        <h2 className="mb-12 text-center text-3xl font-bold">Our Partners</h2>
+        <h2 className="mb-12 text-center text-3xl md:text-5xl font-bold text-white my-3">Our Partners</h2>
         <div className="space-y-8 h-full">
           <Swiper {...swiperParams}>
             {partners1.map((client, index) => (
