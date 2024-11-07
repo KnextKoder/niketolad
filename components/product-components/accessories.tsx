@@ -12,57 +12,67 @@ import {
 } from "@/components/ui/carousel"
 import Image from 'next/image'
 
+interface ProductType{
+    image: string
+    preText?: string
+    text:string
+}
 
-const product_one = [
+const product_one:ProductType[] = [
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Gasoline gauging paste.png',
+        text: 'Gasoline gauging paste'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Nozzle gauge.png',
+        text: 'Nozzle gauge'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Milipore kit.png',
+        text: 'Milipore kit'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/progetto-senza-titolo.png',
+        text: 'Progetto Senza Titolo'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Filter Test Membranes.png',
+        text: 'Filter Test Membranes'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Syringe.png',
+        text: 'Syringe'
+    },
+    {
+        image: '/niketolad-products/yellow pvc grounding Cable.png',
+        text: 'yellow pvc grounding Cable'
     },
 ]
-const product_two = [
+const product_two:ProductType[] = [
     {
         image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        preText: '60 Type',
+        text: 'Separator Element'
+    },
+    {
+        image: '/niketolad-products/Differential Pressure Gauge.png',
+        text: 'Differential Pressure Gauge.png'
+    },
+    {
+        image: '/niketolad-products/Automatic Air Eliminator.png',
+        text: 'Automatic Air Eliminator'
     },
     {
         image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        text: 'FW6-/FW6-T-TYPE'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/hydrometer.png',
+        text: 'hydrometer'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
-    },
-    {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
-    },
-    {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Expansion joint.png',
+        text: 'Expansion joint'
     },
 ]
 
@@ -83,7 +93,10 @@ function ProductOneCarousel() {
                 <Card>
                     <CardContent className="flex flex-col aspect-square items-center justify-center gap-3 rounded-xl hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent">
                     <Image src={product.image} alt={product.text} width={300} height={300} className="object-cover mt-3" />
-                    <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">{product.text}</span>
+                    <div className='flex flex-col justify-center items-center mb-2 mt-2'>
+                        <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200">{product.preText}</span>
+                        <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200">{product.text}</span>
+                    </div>
                     </CardContent>
                 </Card>
                 </div>
@@ -112,8 +125,11 @@ function ProductTwoCarousel() {
                 <div className="p-1">
                 <Card>
                     <CardContent className="flex flex-col aspect-square items-center justify-center gap-3 rounded-xl hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent">
-                    <Image src={product.image} alt={product.text} width={300} height={300} className="object-cover mt-3" />
-                    <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">{product.text}</span>
+                        <Image src={product.image} alt={product.text} width={300} height={300} className="object-cover mt-3" />
+                        <div className='flex flex-col justify-center items-center mb-2 mt-2'>
+                            <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200">{product.preText}</span>
+                            <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200">{product.text}</span>
+                        </div>
                     </CardContent>
                 </Card>
                 </div>

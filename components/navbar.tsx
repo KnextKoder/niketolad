@@ -13,43 +13,43 @@ import {
 import Image from "next/image"
 import Placeholder from "@/public/Nikentolad Logos/Nikentolad group.png";
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Farm Tanks",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Farm Tankers",
-    href: "/docs/primitives/hover-card",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Aviation Fuel Handling",
-    href: "/docs/primitives/progress",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Pipeline Installation",
-    href: "/docs/primitives/scroll-area",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Building Construction",
-    href: "/docs/primitives/tabs",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Fuel Bowser Sales/Retrofit",
-    href: "/docs/primitives/tooltip",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-]
+// const components: { title: string; href: string; description: string }[] = [
+//   {
+//     title: "Farm Tanks",
+//     href: "/docs/primitives/alert-dialog",
+//     description:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//   },
+//   {
+//     title: "Farm Tankers",
+//     href: "/docs/primitives/hover-card",
+//     description:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//   },
+//   {
+//     title: "Aviation Fuel Handling",
+//     href: "/docs/primitives/progress",
+//     description:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//   },
+//   {
+//     title: "Pipeline Installation",
+//     href: "/docs/primitives/scroll-area",
+//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//   },
+//   {
+//     title: "Building Construction",
+//     href: "/docs/primitives/tabs",
+//     description:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//   },
+//   {
+//     title: "Fuel Bowser Sales/Retrofit",
+//     href: "/docs/primitives/tooltip",
+//     description:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//   },
+// ]
 
 export function NavBar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -101,19 +101,26 @@ export function NavBar() {
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <ListItem href="/docs" title="Nikentolad Farms Limited">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  <ListItem href="/#subsidiary" title="Nikentolad Farms Limited">
+                    was established and incorporated in Nigeria in the year 2016 with RC 1377435. The company is into the production of farm products.
                   </ListItem>
-                  <ListItem href="/docs/installation" title="Nikentolad Nigerian Limited">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  <ListItem href="/#subsidiary" title="Nikentolad Nigerian Limited">
+                    established and incorporated in the year 2016 with RC 1377432. The company is into generation of electriciy through the use of renewable energy solutions, working in conjunction with distribution companies to end shortage of electricity in the country.
                   </ListItem>
-                  <ListItem href="/docs/primitives/typography" title="Nikentolad Energy Limited">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  <ListItem href="/#subsidiary" title="Nikentolad Energy Limited">
+                    incorporated in the year 2005 with RC 633721. The company has expertice in the areas of: Procurement, General Aviation, Fuel Handling and Fuel Facilities Business, Engineering, Technical Support, Services, Logistics/Supply Chain and Brand Management, Construction, Consultancy and Advisory Services to the aviation industry, Oil & Gas Companies, Manufacturing Companies, the military, Governmental Agenies and Parastatals.
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
+              <Link href="/#services" passHref>
+                <span className="font-medium text-base">
+                  Services
+                </span>
+              </Link>
+            </NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <NavigationMenuTrigger>
                 <span className="font-medium text-base">
                   Services
@@ -132,7 +139,7 @@ export function NavBar() {
                   ))}
                 </ul>
               </NavigationMenuContent>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
             <NavigationMenuItem>
               <Link href="#footer" passHref>
                 <span className="font-medium text-base">

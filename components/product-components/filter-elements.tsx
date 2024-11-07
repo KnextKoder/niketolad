@@ -12,57 +12,92 @@ import {
 } from "@/components/ui/carousel"
 import Image from 'next/image'
 
+interface ProductType{
+    image: string
+    preText?: string
+    text:string
+}
 
-const product_one = [
+const product_one:ProductType[] = [
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Coalescer Element P Type.png',
+        preText: 'P-Type',
+        text: 'Coalescer Element'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Coalescer Element D-Type.png',
+        preText: 'D-Type',
+        text: 'Coalescer Element'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Coalescer Element K-Type.png',
+        preText: 'K-Type',
+        text: 'Coalescer Element'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Coalescer Element Y type.png',
+        preText: 'Y-Type',
+        text: 'Coalescer Element'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Coalescer Element MIL Type.png',
+        preText: 'MIL Type',
+        text: 'Coalescer Element'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/Coalescer Element P2-type.png',
+        preText: 'P2-Type',
+        text: 'Coalescer Element'
+    },
+    {
+        image: '/niketolad-products/Coalescer Element MIL2-Type.png',
+        preText: 'MIL2-Type',
+        text: 'Coalescer Element'
+    },
+    {
+        image: '/niketolad-products/Coalescer Element CS-Type.png',
+        preText: 'CS-Type',
+        text: 'Coalescer Element'
     },
 ]
-const product_two = [
+const product_two:ProductType[] = [
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/60 Type Sepearator Element.png',
+        preText: '60 Type',
+        text: 'Separator Element'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/60 MIL Type Seperator Element.png',
+        preText: '60MIL Type',
+        text: 'Separator Element'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/FWE and FWE T Type.png',
+        text: 'FWE-/FWE-T-TYPE'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/FW6 FW6 T Type.png',
+        text: 'FW6-/FW6-T-TYPE'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/6 Inches EIMF NON EI Microfilter.png',
+        preText: '6"',
+        text: 'Non El Microfilter'
     },
     {
-        image: '/placeholder.webp',
-        text: 'lorem ipsum'
+        image: '/niketolad-products/6 inch EIMF Microfilter.png',
+        preText: '6"',
+        text: 'El Microfilter'
+    },
+    {
+        image: '/niketolad-products/4 inches non EI microfilter.png',
+        preText: '4"',
+        text: 'Non El Microfilter'
+    },
+    {
+        image: '/niketolad-products/4 inch EIMF TYPE.png',
+        preText: '4"',
+        text: 'El Microfilter'
     },
 ]
 
@@ -83,7 +118,10 @@ function ProductOneCarousel() {
                 <Card>
                     <CardContent className="flex flex-col aspect-square items-center justify-center gap-3 rounded-xl hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent">
                     <Image src={product.image} alt={product.text} width={300} height={300} className="object-cover mt-3" />
-                    <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">{product.text}</span>
+                    <div className='flex flex-col justify-center items-center mb-2 mt-2'>
+                        <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200">{product.preText}</span>
+                        <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200">{product.text}</span>
+                    </div>
                     </CardContent>
                 </Card>
                 </div>
@@ -112,8 +150,11 @@ function ProductTwoCarousel() {
                 <div className="p-1">
                 <Card>
                     <CardContent className="flex flex-col aspect-square items-center justify-center gap-3 rounded-xl hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent">
-                    <Image src={product.image} alt={product.text} width={300} height={300} className="object-cover mt-3" />
-                    <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">{product.text}</span>
+                        <Image src={product.image} alt={product.text} width={300} height={300} className="object-cover mt-3" />
+                        <div className='flex flex-col justify-center items-center mb-2 mt-2'>
+                            <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200">{product.preText}</span>
+                            <span className="font-sans font-bold text-neutral-600 dark:text-neutral-200">{product.text}</span>
+                        </div>
                     </CardContent>
                 </Card>
                 </div>

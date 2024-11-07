@@ -12,11 +12,14 @@ export const About = () => {
             <div className="w-full flex justify-start items-center">
               <h1 className="text-3xl font-bold mb-4">About Us</h1>
             </div>
-            <p className="text-lg leading-relaxed">
+            <div className="text-lg leading-relaxed space-y-5">
               <Balancer>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Nikentolad Group was established and incorporated in Nigeria in 2016, following the expansion of the company to include Nikentolad Energy Limited and Nikentolad Farms Limited. These new ventures were added to complement the already existing Nikentolad Nigeria Limited, which has been opeerational since its founding in 2005. 
               </Balancer>
-            </p>
+              <Balancer>
+                The addition of these new companies was driven by a strategic vision to diversify the Group&apos;s business portfolio and braden its impact across key sectors of the Nigerian economy. By venturing into renewable energy through Nikentolad Energy Limited and sustainable agriculture with Nikentolad Farms Limited, the company aims to contribute meaningfully to national development.
+              </Balancer>
+            </div>
           </div>
           <div className="md:w-1/2 lg:w-1/3 flex justify-center items-center">
             <Image

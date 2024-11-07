@@ -19,7 +19,7 @@ const FarmsCard = ({ header, description, image }: SubsidiaryCardProps) => (
     </div>
     <div className="mt-16 text-center">
       <h4 className="mb-2 mt-4 text-2xl">{header}</h4>
-      <p className="text-sm opacity-70">{description}</p>
+      <p className="text-sm opacity-70 mb-10">{description}</p>
     </div>
   </div>
 );
@@ -54,7 +54,7 @@ const EnergyCard = ({ header, description, image }: SubsidiaryCardProps) => (
 
 const Subsidiaries = () => {
   return (
-    <Section>
+    <Section id="subsidiary">
         <div className="w-screen flex items-center justify-self-center">
         <Container className="flex flex-col items-center gap-4 text-center">
             <h2 className="!my-0 font-bold text-3xl md:text-4xl">Our Subsidiaries</h2>
@@ -62,23 +62,23 @@ const Subsidiaries = () => {
             <div className="not-prose mt-14 grid grid-cols-1 gap-12 md:gap-6 md:grid-cols-2">
             <div className="col-span-1 mb-2 md:mb-6">
                 <FarmsCard
-                    header="Nikentolad Farms Limited"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    image={FarmLogo.src}
+                  header="Nikentolad Farms Limited"
+                  description="Nikentolad Farms Limited was established and incorporated in Nigeria in the year 2016 with RC 1377435. The company is into the production of farm products."
+                  image={FarmLogo.src}
                 />
             </div>
             <div className="col-span-1 mb-2 md:mb-6">
                 <NigeriaCard
-                    header="Nikentolad Energy Limited"
-                    description="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                    image={NigeriaLogo.src}
+                  header="Nikentolad Energy Limited"
+                  description="Nikentolad Energy Limited was established and incorporated in the year 2016 with RC 1377432. The company is into generation of electriciy through the use of renewable energy solutions, working in conjunction with distribution companies to end shortage of electricity in the country."
+                  image={NigeriaLogo.src}
                 />
             </div>
             <div className="col-span-1 mt-2 md:col-span-2 md:mt-6">
             <EnergyCard
-                header="Nikentolad Nigeria Limited"
-                description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-                image={EnergyLogo.src}
+              header="Nikentolad Nigeria Limited"
+              description="Nikentolad Nigeria Limited was established and incorporated in the year 2005 with RC 633721. The company has expertice in the areas of: Procurement, General Aviation, Fuel Handling and Fuel Facilities Business, Engineering, Technical Support, Services, Logistics/Supply Chain and Brand Management, Construction, Consultancy and Advisory Services to the aviation industry, Oil & Gas Companies, Manufacturing Companies, the military, Governmental Agenies and Parastatals."
+              image={EnergyLogo.src}
             />
             </div>
             </div>
