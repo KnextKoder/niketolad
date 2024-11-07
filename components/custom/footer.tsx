@@ -29,7 +29,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-niketolad text-white py-12">
+    <footer className="bg-niketolad text-white py-12" id='footer'>
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
         <div className='w-full md:w-1/2 flex items-center justify-center mb-8 md:mb-0'>
           <div className="text-center md:text-left">

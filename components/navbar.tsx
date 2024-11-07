@@ -80,16 +80,16 @@ export function NavBar() {
         <NavigationMenu className={`${isOpen ? "block" : "hidden"} md:flex`}>
           <NavigationMenuList className="flex flex-col md:flex-row gap-3">
             <NavigationMenuItem>
-              <Link href="/docs" passHref>
+              <Link href="/" passHref>
                 <span className="font-medium text-base">
                   Home
                 </span>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem className="pl-4">
-              <Link href="/docs" passHref>
+              <Link href="/products" passHref>
                 <span className="font-medium text-base">
-                  Profile
+                  Products
                 </span>
               </Link>
             </NavigationMenuItem>
@@ -134,7 +134,7 @@ export function NavBar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/docs" passHref>
+              <Link href="#footer" passHref>
                 <span className="font-medium text-base">
                   Contact Us
                 </span>
