@@ -100,7 +100,7 @@ export function NavBar() {
                 </span>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <ul className="grid gap-3 p-6 w-[260px] md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <ListItem href="/#subsidiary" title="Nikentolad Farms Limited">
                     was established and incorporated in Nigeria in the year 2016 with RC 1377435. The company is into the production of farm products.
                   </ListItem>
