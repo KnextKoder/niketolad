@@ -7,7 +7,7 @@ export const Services = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-gradient-to-l from-slate-50 to-niketolad/60 py-8" id="services">
         <h2 className="font-bold text-3xl md:text-4xl my-4">Our Services</h2>
-        <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[28rem] md:grid-cols-6 gap-1 md:gap-3">
+        <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[28rem] md:grid-cols-6 gap-3 md:gap-3 px-4">
         {items.map((item, i) => (
             <BentoGridItem
             key={i}

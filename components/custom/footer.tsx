@@ -1,4 +1,5 @@
 "use client"
+import { sendMessage } from '@/lib/contact-action';
 import React, { useState } from 'react';
 
 const Footer = () => {
@@ -19,7 +20,7 @@ const Footer = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
+    sendMessage(formData);
     setFormData({
       company: '',
       name: '',
@@ -29,19 +30,19 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-niketolad text-white py-12" id='footer'>
+    <footer className="bg-niketolad/85 text-white py-12" id='footer'>
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
         <div className='w-full md:w-1/2 flex items-center justify-center mb-8 md:mb-0'>
           <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Contact Us</h2>
-            <p className="mb-4 text-base md:text-2xl">
-              Company Name
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Contact Us</h2>
+            <p className="mb-4 text-sm md:text-xl">
+              Nikentolad Group
               <br />
               Company Address
               <br />
               City, State, ZIP
             </p>
-            <p className='text-base md:text-2xl'>
+            <p className='text-sm md:text-xl'>
               Email: mail@company.com
               <br />
               Phone: (123) 456-7890
