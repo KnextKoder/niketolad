@@ -46,6 +46,7 @@ const Footer = () => {
               Email: info@nikentoladgroup.com
               <br />
               Phone: +234 803 727 1866
+              <br/>
               Phone: +234 802 754 6836
             </p>
           </div>

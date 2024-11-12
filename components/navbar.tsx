@@ -110,6 +110,15 @@ export function NavBar() {
                   <ListItem href="/#subsidiary" title="Nikentolad Energy Limited">
                     incorporated in the year 2005 with RC 633721. The company has expertice in the areas of: Procurement, General Aviation, Fuel Handling and Fuel Facilities Business, Engineering, Technical Support, Services, Logistics/Supply Chain and Brand Management, Construction, Consultancy and Advisory Services to the aviation industry, Oil & Gas Companies, Manufacturing Companies, the military, Governmental Agenies and Parastatals.
                   </ListItem>
+                  <ListItem href="/#subsidiary" title="HydroWells Water">
+                    established and incorporated in 2017 UNDER THE COMPANIES AND ALLIED MATTERS ACT 1990 and the company is limited by shares.
+                  </ListItem>
+                  <ListItem href="/#subsidiary" title="Nikenando Energy Limited">
+                    established and incorporated in 2017 UNDER THE COMPANIES AND ALLIED MATTERS ACT 1990 and the company is limited by shares.
+                  </ListItem>
+                  <ListItem href="/#subsidiary" title="Nikentolad Properties Limited">
+                  incorporated in the year 2005 with RC 633721. The company has expertice in the areas of: Procurement, General Aviation, Fuel Handling and Fuel Facilities Business, Engineering, Technical Support, Services, Logistics/Supply Chain and Brand Management, Construction, Consultancy and Advisory Services to the aviation industry, Oil & Gas Companies, Manufacturing Companies, the military, Governmental Agenies and Parastatals.
+                  </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
