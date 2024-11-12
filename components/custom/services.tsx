@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Placeholder from "@/public/placeholder.webp";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
 
@@ -36,32 +35,32 @@ const Images = ({ image }: { image: string }) => (
 const items = [
   {
     title: "Farm Tanks",
-    header: <Images image={Placeholder.src} />,
+    header: <Images image={'/product-images/tank farms site.jpeg'} />,
     className: "md:col-span-4",
   },
   {
     title: "Sales of Quality Control Equipments",
-    header: <Images image={Placeholder.src} />,
+    header: <Images image={'/product-images/sales of qc euipment.JPG'} />,
     className: "md:col-span-2",
   },
   {
     title: "Aviation Fuel Handling",
-    header: <Images image={Placeholder.src} />,
+    header: <Images image={'/product-images/Aviation fuel Handling.png'} />,
     className: "md:col-span-2",
   },
   {
     title: "Pipeline Installation",
-    header: <Images image={Placeholder.src} />,
+    header: <Images image={'/product-images/pipeline installation.jpeg'} />,
     className: "md:col-span-4",
   },
   {
     title: "Building Construction",
-    header: <Images image={Placeholder.src} />,
+    header: <Images image={'/product-images/Building construction1.jpeg'} />,
     className: "md:col-span-3",
   },
   {
     title: "Fuel Bowser Sales/Retrofit",
-    header: <Images image={Placeholder.src} />,
+    header: <Images image={'/product-images/Fuel Bowser Sales.jpeg'} />,
     className: "md:col-span-3",
   }
 ];

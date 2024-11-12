@@ -50,9 +50,8 @@ const product_one:ProductType[] = [
 ]
 const product_two:ProductType[] = [
     {
-        image: '/placeholder.webp',
-        preText: '60 Type',
-        text: 'Separator Element'
+        image: '/product-images/Hydrometer Jar.jpg',
+        text: 'Hydrometer Jar'
     },
     {
         image: '/niketolad-products/Differential Pressure Gauge.png',
@@ -63,8 +62,8 @@ const product_two:ProductType[] = [
         text: 'Automatic Air Eliminator'
     },
     {
-        image: '/placeholder.webp',
-        text: 'FW6-/FW6-T-TYPE'
+        image: '/product-images/thermometre-1.jpg',
+        text: 'Thermometer'
     },
     {
         image: '/niketolad-products/hydrometer.png',

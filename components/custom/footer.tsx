@@ -38,14 +38,15 @@ const Footer = () => {
             <p className="mb-4 text-sm md:text-xl">
               Nikentolad Group
               <br />
-              Company Address
+              8, Adelabu Close Opposite Nigeria Customs Training College, Ikeja, Lagos, Nigeria.
               <br />
-              City, State, ZIP
+              Ikeja, Lagos, Nigeria.
             </p>
             <p className='text-sm md:text-xl'>
-              Email: mail@company.com
+              Email: info@nikentoladgroup.com
               <br />
-              Phone: (123) 456-7890
+              Phone: +234 803 727 1866
+              Phone: +234 802 754 6836
             </p>
           </div>
         </div>
