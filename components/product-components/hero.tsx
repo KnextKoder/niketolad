@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Balancer from "react-wrap-balancer";
-import { Section, Container } from "@/components/craft";
-import Placeholder from "@/public/placeholder.webp"
+// import Balancer from "react-wrap-balancer";
+import { Section } from "@/components/craft";
+import Placeholder from "@/public/sales and distribution of QC products.png"
 
 export default function Hero() {
   return (
@@ -15,7 +15,7 @@ export default function Hero() {
           alt="hero image"
           placeholder="blur"
         />
-        <Container className="relative z-10 flex h-full items-end justify-center pb-8 text-center">
+        {/* <Container className="relative z-10 flex h-full items-end justify-center pb-8 text-center">
           <div className="bg-transparent p-4 rounded-lg mb-8">
             <h1 className="text-white text-3xl md:text-6xl">
               <Balancer>Our</Balancer>
@@ -24,7 +24,7 @@ export default function Hero() {
               <Balancer>Quality Control Products</Balancer>
             </h1>
           </div>
-        </Container>
+        </Container> */}
       </div>
     </Section>
   );

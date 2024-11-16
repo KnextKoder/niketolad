@@ -122,23 +122,23 @@ const Subsidiaries = () => {
             />
             </div>
             <div className="col-span-1 mb-2 md:mb-6 mt-2 md:mt-6">
-            <HydrowellCard
-              header="HydroWells Water"
-              description="Nikenando Energy Limited was established and incorporated in 2017 UNDER THE COMPANIES AND ALLIED MATTERS ACT 1990 and the company is limited by shares."
+            <NikentoladPropertiesCard
+              header="Nikentolad Properties Limited"
+              description="Nikentolad Properties Limited offers luxurious accommodations and exceptional service. Our elegantly designed rooms and suites provide the perfect retreat for business travelers and leisure guests alike."
               image={Placeholder.src}
             />
             </div>
             <div className="col-span-1 mb-2 md:mb-6 mt-2 md:mt-6">
-            <NikenandoEnergyCard
-              header="Nikenando Energy Limited"
-              description="Nikenando Energy Limited was established and incorporated in 2017 UNDER THE COMPANIES AND ALLIED MATTERS ACT 1990 and the company is limited by shares."
+            <HydrowellCard
+              header="HydroWells Water"
+              description="Hydrowell table water is committed to providing the purest, most refreshing water.  Our water is meticulously filtered and bottled to ensure the highest quality. Every sip is a taste of nature's perfection."
               image={Placeholder.src}
             />
             </div>
             <div className="col-span-1 mt-2 md:col-span-2 md:mt-6">
-            <NikentoladPropertiesCard
-              header="Nikentolad Properties Limited"
-              description="Nikentolad Nigeria Limited was established and incorporated in the year 2005 with RC 633721. The company has expertice in the areas of: Procurement, General Aviation, Fuel Handling and Fuel Facilities Business, Engineering, Technical Support, Services, Logistics/Supply Chain and Brand Management, Construction, Consultancy and Advisory Services to the aviation industry, Oil & Gas Companies, Manufacturing Companies, the military, Governmental Agenies and Parastatals."
+            <NikenandoEnergyCard
+              header="Nikenando Energy Limited"
+              description="Nikenando Energy Limited was established and incorporated in 2017 UNDER THE COMPANIES AND ALLIED MATTERS ACT 1990 and the company is limited by shares."
               image={Placeholder.src}
             />
             </div>
