@@ -3,7 +3,10 @@ import { Container, Section } from "../craft";
 import FarmLogo from "@/public/Nikentolad Logos/niketolad farms logo.png"
 import EnergyLogo from "@/public/Nikentolad Logos/Nikentolad Energy logo.png"
 import NigeriaLogo from "@/public/Nikentolad Logos/Nikentolad Nigeria limited logo.png"
-import Placeholder from "@/public/placeholder.webp"
+import HyroWell from '@/public/nikentolad-projects/hydrowells logo.png'
+import Properties from '@/public/nikentolad-projects/nikentolad properties.png'
+import Nikenando from '@/public/nikentolad-projects/Nikenando Energy.png'
+// import Placeholder from "@/public/placeholder.webp"
 
 interface SubsidiaryCardProps {
   header: string;
@@ -55,8 +58,8 @@ const EnergyCard = ({ header, description, image }: SubsidiaryCardProps) => (
 const HydrowellCard = ({ header, description, image }: SubsidiaryCardProps) => (
   <div className="relative flex flex-col rounded-lg border p-6 bg-niketolad text-white shadow-lg">
     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
-      <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-gray-200">
-        <Image src={image} alt={header} className="w-full h-full object-cover" width={96} height={96} />
+      <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-gray-400">
+        <Image src={image} alt={header} className="w-fit h-fit object-cover" width={96} height={96} />
       </div>
     </div>
     <div className="mt-16 text-center">
@@ -69,7 +72,7 @@ const NikentoladPropertiesCard = ({ header, description, image }: SubsidiaryCard
   <div className="relative flex flex-col rounded-lg border p-6 bg-niketolad text-white shadow-lg">
     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
       <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-gray-200">
-        <Image src={image} alt={header} className="w-full h-full object-cover" width={96} height={96} />
+        <Image src={image} alt={header} className="w-fit h-fit object-cover" width={96} height={96} />
       </div>
     </div>
     <div className="mt-16 text-center">
@@ -82,7 +85,7 @@ const NikenandoEnergyCard = ({ header, description, image }: SubsidiaryCardProps
   <div className="relative flex flex-col rounded-lg border p-6 bg-niketolad text-white shadow-lg">
     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
       <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-gray-200">
-        <Image src={image} alt={header} className="w-full h-full object-cover" width={96} height={96} />
+        <Image src={image} alt={header} className="w-fit h-fit object-cover" width={96} height={96} />
       </div>
     </div>
     <div className="mt-16 text-center">
@@ -125,21 +128,21 @@ const Subsidiaries = () => {
             <NikentoladPropertiesCard
               header="Nikentolad Properties Limited"
               description="Nikentolad Properties Limited offers luxurious accommodations and exceptional service. Our elegantly designed rooms and suites provide the perfect retreat for business travelers and leisure guests alike."
-              image={Placeholder.src}
+              image={Properties.src}
             />
             </div>
             <div className="col-span-1 mb-2 md:mb-6 mt-2 md:mt-6">
             <HydrowellCard
               header="HydroWells Water"
               description="Hydrowell table water is committed to providing the purest, most refreshing water.  Our water is meticulously filtered and bottled to ensure the highest quality. Every sip is a taste of nature's perfection."
-              image={Placeholder.src}
+              image={HyroWell.src}
             />
             </div>
             <div className="col-span-1 mt-2 md:col-span-2 md:mt-6">
             <NikenandoEnergyCard
               header="Nikenando Energy Limited"
               description="Nikenando Energy Limited was established and incorporated in 2017 UNDER THE COMPANIES AND ALLIED MATTERS ACT 1990 and the company is limited by shares."
-              image={Placeholder.src}
+              image={Nikenando.src}
             />
             </div>
             </div>
