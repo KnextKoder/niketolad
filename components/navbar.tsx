@@ -129,6 +129,13 @@ export function NavBar() {
                 </span>
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem className="pl-4">
+              <Link href="/projects" passHref>
+                <span className="font-medium text-base">
+                  Projects
+                </span>
+              </Link>
+            </NavigationMenuItem>
             {/* <NavigationMenuItem>
               <NavigationMenuTrigger>
                 <span className="font-medium text-base">
