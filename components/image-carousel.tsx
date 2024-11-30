@@ -182,7 +182,7 @@ export default function ImageCarousel() {
                 src={selectedImage.src}
                 alt={selectedImage.alt}
                 fill
-                className="object-cover"
+                className="object-fit"
               />
             </motion.div>
           </AnimatePresence>
