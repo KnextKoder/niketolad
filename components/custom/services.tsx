@@ -1,11 +1,46 @@
+"use client"
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
 
 export const Services = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-gradient-to-l from-slate-50 to-niketolad/60 py-8" id="services">
-        <h2 className="font-bold text-3xl md:text-4xl my-4">Our Services</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center gap-6 text-center mb-12"
+        >
+          <motion.h2 
+            className="font-bold text-3xl md:text-4xl lg:text-5xl"
+            whileInView={{ 
+              scale: [1, 1.05, 1],
+              transition: { duration: 1, ease: "easeInOut" }
+            }}
+            viewport={{ once: true }}
+          >
+            Our Services
+          </motion.h2>
+          <motion.div 
+            className="h-1 w-20 bg-niketolad rounded-full"
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          />
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="max-w-2xl text-gray-600 text-center"
+          >
+            We deliver exceptional quality across a diverse range of industries, with expertise in engineering, energy, and infrastructure development.
+          </motion.p>
+        </motion.div>
         <BentoGrid className="max-w-5xl mx-auto md:auto-rows-[28rem] md:grid-cols-6 gap-3 md:gap-3 px-4">
         {items.map((item, i) => (
             <BentoGridItem

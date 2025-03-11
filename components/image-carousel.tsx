@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ZoomIn, Info, X } from 'lucide-react'
 
 interface CarouselImage {
   id: number
@@ -138,8 +138,27 @@ const images: CarouselImage[] = [
 export default function ImageCarousel() {
   const [selectedImage, setSelectedImage] = useState<CarouselImage>(images[0])
   const [isScrollable, setIsScrollable] = useState(false)
+  const [showInfo, setShowInfo] = useState(false)
+  const [lightbox, setLightbox] = useState<CarouselImage | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
+        navigateImage('next')
+      } else if (e.key === 'ArrowLeft') {
+        navigateImage('prev')
+      } else if (e.key === 'Escape' && lightbox) {
+        setLightbox(null)
+      }
+    }
+    
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedImage, lightbox])
 
+  // Check if thumbnail container is scrollable
   useEffect(() => {
     const checkScrollable = () => {
       if (scrollContainerRef.current) {
@@ -151,12 +170,32 @@ export default function ImageCarousel() {
 
     checkScrollable()
     window.addEventListener('resize', checkScrollable)
-
-    return () => {
-      window.removeEventListener('resize', checkScrollable)
-    }
+    return () => window.removeEventListener('resize', checkScrollable)
   }, [])
 
+  // Navigation functions
+  const navigateImage = (direction: 'prev' | 'next') => {
+    const currentIndex = images.findIndex(img => img.id === selectedImage.id)
+    let newIndex = currentIndex
+    
+    if (direction === 'prev') {
+      newIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1
+    } else {
+      newIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0
+    }
+    
+    setSelectedImage(images[newIndex])
+    
+    // Scroll thumbnail into view
+    if (scrollContainerRef.current) {
+      const thumbnail = scrollContainerRef.current.children[newIndex] as HTMLElement
+      if (thumbnail) {
+        thumbnail.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+      }
+    }
+  }
+
+  // Scroll thumbnail container
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       const scrollAmount = direction === 'left' ? -200 : 200
@@ -165,10 +204,14 @@ export default function ImageCarousel() {
   }
 
   return (
-    <div className="container mx-auto p-4 h-full bg-gray-300">
-      <div className="flex flex-col lg:flex-row gap-6">
-        {/* Main image display */}
-        <div className="lg:w-3/4">
+    <div className="container mx-auto p-4 md:p-6 lg:p-8 bg-gradient-to-b from-gray-100 to-gray-200 rounded-xl shadow-lg">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="flex flex-col gap-6"
+      >
+        {/* Main image display with navigation */}
+        <div className="relative group">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedImage.id}
@@ -176,83 +219,184 @@ export default function ImageCarousel() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative aspect-video rounded-lg overflow-hidden shadow-lg"
+              className="relative aspect-video md:aspect-[16/9] rounded-xl overflow-hidden shadow-xl"
             >
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
                 fill
-                className="object-fit"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                className="object-cover hover:scale-105 transition-transform duration-700"
               />
+              
+              {/* Image overlay with controls */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                <motion.button
+                  onClick={() => setLightbox(selectedImage)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="bg-white/80 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  aria-label="View full image"
+                >
+                  <ZoomIn className="w-5 h-5 text-gray-800" />
+                </motion.button>
+                <motion.button
+                  onClick={() => setShowInfo(!showInfo)}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  aria-label="Toggle image information"
+                >
+                  <Info className="w-4 h-4 text-gray-800" />
+                </motion.button>
+              </div>
+              
+              {/* Navigation arrows */}
+              <motion.button
+                onClick={() => navigateImage('prev')}
+                whileHover={{ scale: 1.1, x: -5 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-800" />
+              </motion.button>
+              <motion.button
+                onClick={() => navigateImage('next')}
+                whileHover={{ scale: 1.1, x: 5 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-6 h-6 text-gray-800" />
+              </motion.button>
             </motion.div>
+          </AnimatePresence>
+          
+          {/* Image info panel */}
+          <AnimatePresence>
+            {showInfo && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3 }}
+                className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-black/0 p-4 md:p-6"
+              >
+                <h2 className="text-xl font-bold text-white mb-1">{selectedImage.title}</h2>
+                <p className="text-white/90 text-sm md:text-base">{selectedImage.description}</p>
+              </motion.div>
+            )}
           </AnimatePresence>
         </div>
 
-        {/* Thumbnails and info section */}
-        <div className="flex justify-center items-center w-full lg:w-1/4">
-          <div className="w-full md:w-1/2 lg:w-full flex flex-col gap-6 lg:h-full">
-            {/* Thumbnails */}
-            <div className="relative">
-              <div
-                ref={scrollContainerRef}
-                className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide p-3"
-              >
-                {images.map((image) => (
-                  <button
-                    key={image.id}
-                    onClick={() => setSelectedImage(image)}
-                    className={`relative flex-shrink-0 w-20 h-20 rounded-md overflow-hidden transition-all duration-200 ease-in-out ${
-                      selectedImage.id === image.id
-                        ? 'ring-2 ring-primary scale-105'
-                        : 'opacity-70 hover:opacity-100'
-                    }`}
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className="object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-              {isScrollable && (
-                <>
-                  <button
-                    onClick={() => scroll('left')}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full"
-                    aria-label="Scroll left"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={() => scroll('right')}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full"
-                    aria-label="Scroll right"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </>
-              )}
-            </div>
-
-            {/* Image information */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={selectedImage.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="bg-gray-100 p-4 rounded-lg shadow-md lg:h-2/3"
-              >
-                <h2 className="text-xl font-bold mb-2">{selectedImage.title}</h2>
-                <p className="text-gray-600">{selectedImage.description}</p>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+        {/* Image counter */}
+        <div className="flex items-center justify-center">
+          <p className="text-gray-500 text-sm">
+            <span className="font-bold text-gray-700">{images.findIndex(img => img.id === selectedImage.id) + 1}</span>
+            <span> / {images.length}</span>
+          </p>
         </div>
-      </div>
+
+        {/* Thumbnails section */}
+        <div className="relative bg-white/50 backdrop-blur-sm p-3 rounded-lg shadow-md">
+          <div
+            ref={scrollContainerRef}
+            className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent"
+          >
+            {images.map((image) => (
+              <motion.button
+                key={image.id}
+                onClick={() => setSelectedImage(image)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`relative flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-md overflow-hidden transition-all duration-200 ease-in-out ${
+                  selectedImage.id === image.id
+                    ? 'ring-2 ring-niketolad shadow-md'
+                    : 'opacity-70 hover:opacity-100'
+                }`}
+                aria-label={`View ${image.title}`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="80px"
+                  className="object-cover"
+                />
+              </motion.button>
+            ))}
+          </div>
+          {isScrollable && (
+            <>
+              <motion.button
+                onClick={() => scroll('left')}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md z-10"
+                aria-label="Scroll thumbnails left"
+              >
+                <ChevronLeft className="w-4 h-4 text-gray-800" />
+              </motion.button>
+              <motion.button
+                onClick={() => scroll('right')}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md z-10"
+                aria-label="Scroll thumbnails right"
+              >
+                <ChevronRight className="w-4 h-4 text-gray-800" />
+              </motion.button>
+            </>
+          )}
+        </div>
+      </motion.div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 md:p-8"
+            onClick={() => setLightbox(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="relative max-w-5xl max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative aspect-auto h-full max-h-[80vh]">
+                <Image
+                  src={lightbox.src}
+                  alt={lightbox.alt}
+                  fill
+                  sizes="(max-width: 768px) 90vw, 80vw"
+                  className="object-contain"
+                />
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-2 rounded-full"
+                onClick={() => setLightbox(null)}
+                aria-label="Close lightbox"
+              >
+                <X className="w-6 h-6 text-white" />
+              </motion.button>
+              <div className="absolute bottom-0 inset-x-0 p-4 bg-black/50 backdrop-blur-sm">
+                <h3 className="text-white font-bold text-xl">{lightbox.title}</h3>
+                <p className="text-white/80">{lightbox.description}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
