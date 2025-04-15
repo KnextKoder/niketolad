@@ -60,7 +60,50 @@ const SubsidiaryCard = ({ header, description, image, delay = 0 }: SubsidiaryCar
   </motion.div>
 );
 
-const subsidiariesData = [
+const GreenSubsidiaryCard = ({ header, description, image, delay = 0 }: SubsidiaryCardProps) => (
+  <motion.div 
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.5, delay: delay }}
+    whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+    className="relative flex flex-col rounded-lg border p-6 bg-niketolad text-white shadow-lg h-full"
+  >
+    <div 
+      className="absolute -top-12 left-1/2 transform -translate-x-1/2"
+    >
+      <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white bg-green-900 flex items-center justify-center">
+        <Image 
+          src={image} 
+          alt={header} 
+          className="w-full h-full object-contain" 
+          width={96} 
+          height={96} 
+        />
+      </div>
+    </div>
+    <div className="mt-16 text-center">
+      <motion.h4 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: delay + 0.3 }}
+        className="mb-3 mt-4 text-xl md:text-2xl font-semibold"
+      >
+        {header}
+      </motion.h4>
+      <motion.p 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: delay + 0.5 }}
+        className="text-sm md:text-base opacity-80"
+      >
+        {description}
+      </motion.p>
+    </div>
+  </motion.div>
+);
+
+const GreenSubsidiariesData = [
   {
     header: "Nikentolad Farms Limited",
     description: "Nikentolad Farms Limited was established and incorporated in Nigeria in the year 2016 with RC 1377435. The company is into the production of farm products.",
@@ -76,6 +119,8 @@ const subsidiariesData = [
     description: "Nikentolad Nigeria Limited was established and incorporated in the year 2005 with RC 633721. The company has expertice in the areas of: Procurement, General Aviation, Fuel Handling and Fuel Facilities Business, Engineering, Technical Support, Services, Logistics/Supply Chain and Brand Management, Construction, Consultancy and Advisory Services to the aviation industry, Oil & Gas Companies, Manufacturing Companies, the military, Governmental Agenies and Parastatals.",
     image: NigeriaLogo,
   },
+];
+const subsidiariesData = [
   {
     header: "Nikentolad Properties Limited",
     description: "Nikentolad Properties Limited offers luxurious accommodations and exceptional service. Our elegantly designed rooms and suites provide the perfect retreat for business travelers and leisure guests alike.",
@@ -123,6 +168,17 @@ const Subsidiaries = () => {
           />
         </motion.div>
 
+        <div className="grid grid-cols-1 gap-y-16 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-16">
+          {GreenSubsidiariesData.map((subsidiary, index) => (
+            <GreenSubsidiaryCard
+              key={index}
+              header={subsidiary.header}
+              description={subsidiary.description}
+              image={subsidiary.image.src}
+              delay={index * 0.15}
+            />
+          ))}
+        </div>
         <div className="grid grid-cols-1 gap-y-16 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {subsidiariesData.map((subsidiary, index) => (
             <SubsidiaryCard

@@ -18,7 +18,7 @@ export const sendMessage = async (data:formData) => {
         
         resend.emails.send({
           from: 'onboarding@resend.dev',
-          to: 'info@nikentoladgroup.com',
+          to: 'john.olatunde@nikentoladgroup.com',
           subject: `Message from ${data.name} at ${data.company}, ${data.email}`,
           html: `<p>${data.message}</p>`
         });

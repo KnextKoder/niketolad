@@ -140,6 +140,6 @@ export const WaterSeparator = () => {
         <div className='mb-4'>
             <ProductTwoCarousel/>
         </div>
-    </Section>
+    </Section>  
   )
 }

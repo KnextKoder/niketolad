@@ -12,14 +12,14 @@ export const About = () => {
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16"
         >
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
             className="md:w-1/2 flex flex-col justify-center"
           >
