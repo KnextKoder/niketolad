@@ -77,7 +77,7 @@ export function Clients() {
   return (
     <section className="py-16 pt-14 flex flex-col bg-gradient-to-l from-slate-50 to-niketolad/60">
       <div className="container mx-auto px-4 h-full">
-        <h2 className="mb-12 text-center text-3xl md:text-5xl font-bold my-3">Our Clients Trust Us</h2>
+        <h2 className="mb-12 text-center text-3xl md:text-5xl font-bold my-3 bg-white py-3">Our Clients Trust Us</h2>
         <div className="space-y-8 h-full">
           <Swiper {...swiperParams}>
             {clients.map((client, index) => (
@@ -111,7 +111,7 @@ export function Clients() {
       </div>
     {/* ================================================================================================================================================================= */}
       <div className="container mx-auto px-4 h-full mt-9">
-        <h2 className="mb-12 text-center text-3xl md:text-5xl font-bold my-3  ">Our Partners</h2>
+        <h2 className="mb-12 text-center text-3xl md:text-5xl font-bold my-3 bg-white py-3">Our Partners</h2>
         <div className="space-y-8 h-full">
           <Swiper {...swiperParams}>
             {partners1.map((client, index) => (

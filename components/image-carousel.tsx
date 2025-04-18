@@ -1,147 +1,133 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, ZoomIn, Info, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ZoomIn, X } from 'lucide-react'
 
 interface CarouselImage {
   id: number
   src: string
   alt: string
-  title: string
-  description: string
 }
 
 const images: CarouselImage[] = [
   {
     id: 1,
     src: '/project-images/bond wall construction .jpg',
-    alt: 'Image 1',
-    title: 'Bond Wall Construction 1',
-    description: 'A serene view of mountains and a lake.'
+    alt: 'Bond Wall Construction 1',
   },
   {
     id: 2,
     src: '/project-images/bond wall construction.jpg',
-    alt: 'Image 2',
-    title: 'Bond Wall Construction 2',
-    description: 'A stunning cityscape at night.'
+    alt: 'Bond Wall Construction 2',
   },
   {
     id: 3,
     src: '/project-images/foundation construction (1).jpg',
-    alt: 'Image 3',
-    title: 'Foundation Construction 1',
-    description: 'Crystal clear waters and white sand beaches.'
+    alt: 'Foundation Construction 1',
   },
   {
     id: 4,
     src: '/project-images/foundation construction (2).jpg',
-    alt: 'Image 4',
-    title: 'Foundation Construction 2',
-    description: 'A winding path through a lush green forest.'
+    alt: 'Foundation Construction 2',
   },
   {
     id: 5,
     src: '/project-images/foundation construction (6).jpg',
-    alt: 'Image 5',
-    title: 'Foundation Construction 3',
-    description: 'A snow-capped mountain peak touching the clouds.'
+    alt: 'Foundation Construction 3',
   },
   {
     id: 6,
     src: '/project-images/foundation construction (7).jpg',
-    alt: 'Image 6',
-    title: 'Foundation Construction 4',
-    description: 'A lush oasis in the middle of a vast desert.'
+    alt: 'Foundation Construction 4',
   },
   {
     id: 7,
     src: '/project-images/gantry construction.jpg',
-    alt: 'Image 1',
-    title: 'Gantry Construction',
-    description: 'A serene view of mountains and a lake.'
+    alt: 'Gantry Construction',
   },
   {
     id: 8,
     src: '/project-images/Hydrant Tank Construction.jpg',
-    alt: 'Image 2',
-    title: 'Hydrant Tank Construction',
-    description: 'A stunning cityscape at night.'
+    alt: 'Hydrant Tank Construction',
   },
   {
     id: 9,
     src: '/project-images/hydrant tank stairway construction.jpg',
-    alt: 'Image 3',
-    title: 'Hydrant Tank Stairway Construction',
-    description: 'Crystal clear waters and white sand beaches.'
+    alt: 'Hydrant Tank Stairway Construction',
   },
   {
     id: 10,
     src: '/project-images/product tank bridge construction.jpg',
-    alt: 'Image 4',
-    title: 'Product Tank Bridge Construction',
-    description: 'A winding path through a lush green forest.'
+    alt: 'Product Tank Bridge Construction',
   },
   {
     id: 11,
     src: '/project-images/product tank construction (2).jpg',
-    alt: 'Image 5',
-    title: 'Product Tank Construction 1',
-    description: 'A snow-capped mountain peak touching the clouds.'
+    alt: 'Product Tank Construction 1',
   },
   {
     id: 12,
     src: '/project-images/product tank construction 2.jpg',
-    alt: 'Image 6',
-    title: 'Product Tank Construction 2',
-    description: 'A lush oasis in the middle of a vast desert.'
+    alt: 'Product Tank Construction 2',
   },
   {
     id: 13,
     src: '/project-images/product tank construction 3.jpg',
-    alt: 'Image 6',
-    title: 'Product Tank Construction 3',
-    description: 'A lush oasis in the middle of a vast desert.'
+    alt: 'Product Tank Construction 3',
   },
   {
     id: 14,
     src: '/project-images/product tank construction.jpg',
-    alt: 'Image 6',
-    title: 'Product Tank Construction 4',
-    description: 'A lush oasis in the middle of a vast desert.'
+    alt: 'Product Tank Construction 4',
   },
   {
     id: 15,
     src: '/project-images/product tank roof construction.jpg',
-    alt: 'Image 6',
-    title: 'Product Tank Roof Construction',
-    description: 'A lush oasis in the middle of a vast desert.'
+    alt: 'Product Tank Roof Construction',
   },
   {
     id: 16,
     src: '/project-images/product tank stairway construction.jpg',
-    alt: 'Image 6',
-    title: 'Product Tank Stairway Construction',
-    description: 'A lush oasis in the middle of a vast desert.'
+    alt: 'Product Tank Stairway Construction',
   },
   {
     id: 17,
     src: '/project-images/product tank welding.jpg',
-    alt: 'Image 6',
-    title: 'Product Tank Welding',
-    description: 'A lush oasis in the middle of a vast desert.'
+    alt: 'Product Tank Welding',
   },
 ]
 
 export default function ImageCarousel() {
   const [selectedImage, setSelectedImage] = useState<CarouselImage>(images[0])
   const [isScrollable, setIsScrollable] = useState(false)
-  const [showInfo, setShowInfo] = useState(false)
   const [lightbox, setLightbox] = useState<CarouselImage | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-  
+
+  // Navigation functions - Moved before useEffect
+  const navigateImage = useCallback((direction: 'prev' | 'next') => {
+    const currentIndex = images.findIndex(img => img.id === selectedImage.id)
+    let newIndex = currentIndex
+
+    if (direction === 'prev') {
+      newIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1
+    } else {
+      newIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0
+    }
+
+    setSelectedImage(images[newIndex])
+
+    // Scroll thumbnail into view
+    if (scrollContainerRef.current) {
+      // Query selector might be fragile, consider alternative ways to get the element if issues arise
+      const thumbnail = scrollContainerRef.current.querySelector(`[aria-label="View ${images[newIndex].alt}"]`) as HTMLElement
+      if (thumbnail) {
+        thumbnail.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+      }
+    }
+  }, [selectedImage.id])
+
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -153,10 +139,10 @@ export default function ImageCarousel() {
         setLightbox(null)
       }
     }
-    
+
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [selectedImage, lightbox])
+  }, [lightbox, navigateImage]) // navigateImage is now defined above
 
   // Check if thumbnail container is scrollable
   useEffect(() => {
@@ -172,28 +158,6 @@ export default function ImageCarousel() {
     window.addEventListener('resize', checkScrollable)
     return () => window.removeEventListener('resize', checkScrollable)
   }, [])
-
-  // Navigation functions
-  const navigateImage = (direction: 'prev' | 'next') => {
-    const currentIndex = images.findIndex(img => img.id === selectedImage.id)
-    let newIndex = currentIndex
-    
-    if (direction === 'prev') {
-      newIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1
-    } else {
-      newIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0
-    }
-    
-    setSelectedImage(images[newIndex])
-    
-    // Scroll thumbnail into view
-    if (scrollContainerRef.current) {
-      const thumbnail = scrollContainerRef.current.children[newIndex] as HTMLElement
-      if (thumbnail) {
-        thumbnail.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
-      }
-    }
-  }
 
   // Scroll thumbnail container
   const scroll = (direction: 'left' | 'right') => {
@@ -229,7 +193,7 @@ export default function ImageCarousel() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                 className="object-cover hover:scale-105 transition-transform duration-700"
               />
-              
+
               {/* Image overlay with controls */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                 <motion.button
@@ -241,17 +205,8 @@ export default function ImageCarousel() {
                 >
                   <ZoomIn className="w-5 h-5 text-gray-800" />
                 </motion.button>
-                <motion.button
-                  onClick={() => setShowInfo(!showInfo)}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  aria-label="Toggle image information"
-                >
-                  <Info className="w-4 h-4 text-gray-800" />
-                </motion.button>
               </div>
-              
+
               {/* Navigation arrows */}
               <motion.button
                 onClick={() => navigateImage('prev')}
@@ -272,22 +227,6 @@ export default function ImageCarousel() {
                 <ChevronRight className="w-6 h-6 text-gray-800" />
               </motion.button>
             </motion.div>
-          </AnimatePresence>
-          
-          {/* Image info panel */}
-          <AnimatePresence>
-            {showInfo && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.3 }}
-                className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-black/0 p-4 md:p-6"
-              >
-                <h2 className="text-xl font-bold text-white mb-1">{selectedImage.title}</h2>
-                <p className="text-white/90 text-sm md:text-base">{selectedImage.description}</p>
-              </motion.div>
-            )}
           </AnimatePresence>
         </div>
 
@@ -316,7 +255,7 @@ export default function ImageCarousel() {
                     ? 'ring-2 ring-niketolad shadow-md'
                     : 'opacity-70 hover:opacity-100'
                 }`}
-                aria-label={`View ${image.title}`}
+                aria-label={`View ${image.alt}`}
               >
                 <Image
                   src={image.src}
@@ -389,10 +328,6 @@ export default function ImageCarousel() {
               >
                 <X className="w-6 h-6 text-white" />
               </motion.button>
-              <div className="absolute bottom-0 inset-x-0 p-4 bg-black/50 backdrop-blur-sm">
-                <h3 className="text-white font-bold text-xl">{lightbox.title}</h3>
-                <p className="text-white/80">{lightbox.description}</p>
-              </div>
             </motion.div>
           </motion.div>
         )}

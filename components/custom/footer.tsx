@@ -95,7 +95,7 @@ const Footer = () => {
                 <div>
                   <h3 className="font-semibold text-lg mb-1">Email</h3>
                   <p className="opacity-80 text-sm">
-                    info@nikentoladgroup.com
+                    john.olatunde@nikentoladgroup.com
                   </p>
                 </div>
               </div>
