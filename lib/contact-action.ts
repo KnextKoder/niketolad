@@ -1,4 +1,3 @@
-'use server'
 import { Resend } from 'resend';
 
 interface formData{
@@ -14,7 +13,7 @@ export const sendMessage = async (data:formData) => {
     }else if (data.message.length < 1 && data.company.length < 1 && data.email.length < 1 && data.name.length < 1){
         console.log("Empty data")
     }else{
-        const resend = new Resend(`${process.env.RESEND_API_KEY}`);
+        const resend = new Resend(`re_dfXQVaVP_Fwz1u1zZuQ51HPXBX96VwFKP`);
         
         resend.emails.send({
           from: 'onboarding@resend.dev',
